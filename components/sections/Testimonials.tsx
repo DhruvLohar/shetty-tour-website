@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { motion } from "framer-motion";
 
 interface Testimonial {
@@ -76,23 +76,23 @@ const testimonials: Testimonial[] = [
 const TestimonialCard = React.memo(({ testimonial }: { testimonial: Testimonial }) => {
     return (
         <motion.div
-            className="shrink-0 w-100 bg-amber-50 border-0 border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
+            className="shrink-0 w-75 sm:w-87.5 md:w-100 bg-amber-50 border-0 border-border rounded-xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow"
         >
-            <div className="mb-4">
+            <div className="mb-3 sm:mb-4">
                 <svg
-                    className="w-8 h-8 text-muted-foreground/40"
+                    className="w-6 h-6 sm:w-8 sm:h-8 text-muted-foreground/40"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                 >
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
             </div>
-            <p className="text-foreground/80 mb-6 leading-relaxed">
+            <p className="text-sm sm:text-base text-foreground/80 mb-4 sm:mb-6 leading-relaxed">
                 {testimonial.quote}
             </p>
-            <div className="border-t border-border pt-4">
-                <p className="font-semibold text-foreground">{testimonial.name}</p>
-                <p className="text-sm text-muted-foreground mt-1">{testimonial.fleet}</p>
+            <div className="border-t border-border pt-3 sm:pt-4">
+                <p className="text-sm sm:text-base font-semibold text-foreground">{testimonial.name}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">{testimonial.fleet}</p>
             </div>
         </motion.div>
     );
@@ -100,73 +100,98 @@ const TestimonialCard = React.memo(({ testimonial }: { testimonial: Testimonial 
 
 TestimonialCard.displayName = "TestimonialCard";
 
+const InfiniteRow = React.memo(({ items, direction = "left" }: { items: Testimonial[], direction?: "left" | "right" }) => {
+    const [isPaused, setIsPaused] = useState(false);
+    
+    // Calculate total width more accurately
+    const cardWidth = 400; // max width from responsive classes
+    const gap = 24; // 6 * 4px
+    const totalWidth = (cardWidth + gap) * items.length;
+    
+    const handleTouchStart = useCallback(() => {
+        setIsPaused(true);
+    }, []);
+    
+    const handleTouchEnd = useCallback(() => {
+        setIsPaused(false);
+    }, []);
+    
+    return (
+        <div 
+            className="overflow-hidden"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+        >
+            <motion.div
+                className="flex gap-4 sm:gap-6"
+                animate={{
+                    x: direction === "left" ? [-totalWidth, 0] : [0, -totalWidth],
+                }}
+                transition={{
+                    x: {
+                        repeat: Infinity,
+                        repeatType: "loop",
+                        duration: 50,
+                        ease: "linear",
+                    },
+                }}
+                style={{
+                    animationPlayState: isPaused ? "paused" : "running"
+                }}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+            >
+                {/* Render items 4 times for seamless loop */}
+                {[...Array(4)].flatMap((_, setIndex) => 
+                    items.map((testimonial, index) => (
+                        <TestimonialCard 
+                            key={`${direction}-${testimonial.id}-${setIndex}-${index}`} 
+                            testimonial={testimonial} 
+                        />
+                    ))
+                )}
+            </motion.div>
+        </div>
+    );
+});
+
+InfiniteRow.displayName = "InfiniteRow";
+
 function Testimonials() {
     const topRowTestimonials = testimonials.slice(0, 5);
     const bottomRowTestimonials = testimonials.slice(5, 10);
 
     return (
-        <section className="w-full flex flex-col items-center min-h-screen py-18 px-6 md:px-12 overflow-hidden">
-            <div className="max-w-7xl mx-auto w-full mb-12">
-                <h2 className="text-7xl font-black italic text-center mb-6">
+        <motion.section 
+            className="w-full flex flex-col items-center min-h-screen py-12 sm:py-16 md:py-18 px-4 sm:px-6 md:px-12 overflow-hidden"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+            <div className="max-w-7xl mx-auto w-full mb-8 sm:mb-10 md:mb-12">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black italic text-center mb-4 sm:mb-6">
                     What Our <span className="text-primary">Clients</span> Say.
                 </h2>
-                <p className="text-center max-w-3xl mx-auto text-foreground/70">
+                <p className="text-sm sm:text-base text-center max-w-3xl mx-auto text-foreground/70 px-4">
                     Hear from our satisfied customers who have experienced our premium transportation services.
                 </p>
             </div>
 
             <div className="relative w-full">
                 {/* Gradient Overlays */}
-                <div className="absolute left-0 top-0 bottom-0 w-32 bg-linear-to-r from-background to-transparent z-10 pointer-events-none" />
-                <div className="absolute right-0 top-0 bottom-0 w-32 bg-linear-to-l from-background to-transparent z-10 pointer-events-none" />
+                <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 md:w-32 bg-linear-to-r from-background to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 md:w-32 bg-linear-to-l from-background to-transparent z-10 pointer-events-none" />
 
                 {/* Top Row - Moving Left */}
-                <div className="mb-6 overflow-hidden">
-                    <motion.div
-                        className="flex gap-6"
-                        animate={{
-                            x: [0, -2000],
-                        }}
-                        transition={{
-                            x: {
-                                repeat: Infinity,
-                                repeatType: "loop",
-                                duration: 40,
-                                ease: "linear",
-                            },
-                        }}
-                        whileHover={{ animationPlayState: "paused" }}
-                    >
-                        {[...topRowTestimonials, ...topRowTestimonials, ...topRowTestimonials].map((testimonial, index) => (
-                            <TestimonialCard key={`top-${testimonial.id}-${index}`} testimonial={testimonial} />
-                        ))}
-                    </motion.div>
+                <div className="mb-4 sm:mb-6">
+                    <InfiniteRow items={topRowTestimonials} direction="left" />
                 </div>
 
                 {/* Bottom Row - Moving Right */}
-                <div className="overflow-hidden">
-                    <motion.div
-                        className="flex gap-6"
-                        animate={{
-                            x: [-2000, 0],
-                        }}
-                        transition={{
-                            x: {
-                                repeat: Infinity,
-                                repeatType: "loop",
-                                duration: 40,
-                                ease: "linear",
-                            },
-                        }}
-                        whileHover={{ animationPlayState: "paused" }}
-                    >
-                        {[...bottomRowTestimonials, ...bottomRowTestimonials, ...bottomRowTestimonials].map((testimonial, index) => (
-                            <TestimonialCard key={`bottom-${testimonial.id}-${index}`} testimonial={testimonial} />
-                        ))}
-                    </motion.div>
-                </div>
+                <InfiniteRow items={bottomRowTestimonials} direction="right" />
             </div>
-        </section>
+        </motion.section>
     );
 }
 

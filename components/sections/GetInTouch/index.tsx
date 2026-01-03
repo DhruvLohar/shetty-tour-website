@@ -99,23 +99,30 @@ Looking forward to your response!`;
     };
 
     return (
-        <section className="w-full relative flex flex-row items-start justify-between px-20 py-16 gap-12 bg-white">
+        <motion.section 
+            id="get-in-touch" 
+            className="w-full relative flex flex-col lg:flex-row items-start justify-between px-4 sm:px-6 md:px-12 lg:px-20 py-12 md:py-16 gap-8 md:gap-12 bg-white"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+        >
             {/* Left Side - Form */}
             <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                className="flex-1 max-w-2xl"
+                className="flex-1 w-full lg:max-w-2xl"
             >
-                <h2 className="text-5xl font-black italic mb-2">Get In Touch</h2>
-                <p className="text-foreground/60 mb-8">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black italic mb-2">Get In Touch</h2>
+                <p className="text-sm sm:text-base text-foreground/60 mb-6 md:mb-8">
                     Let&apos;s explore together.<br />
                     Book your fleet now!
                 </p>
 
-                <form onSubmit={handleSubmit} className="space-y-8">
+                <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
                     {/* Trip Type Radio Buttons */}
-                    <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-4 sm:gap-6">
                         <RadioButton
                             id="oneWay"
                             name="tripType"
@@ -133,7 +140,7 @@ Looking forward to your response!`;
                     </div>
 
                     {/* Date Inputs */}
-                    <div className="grid grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                         <FloatingInput
                             id="fromDate"
                             label="From Date"
@@ -176,7 +183,7 @@ Looking forward to your response!`;
                     </div>
 
                     {/* Name and Contact */}
-                    <div className="grid grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                         <FloatingInput
                             id="name"
                             label="Name"
@@ -197,7 +204,7 @@ Looking forward to your response!`;
                     </div>
 
                     {/* Locations */}
-                    <div className="grid grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                         <FloatingInput
                             id="fromLocation"
                             label="From Location"
@@ -232,7 +239,7 @@ Looking forward to your response!`;
                     />
 
                     {/* AC Type Radio Buttons */}
-                    <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-4 sm:gap-6">
                         <RadioButton
                             id="ac"
                             name="acType"
@@ -254,7 +261,7 @@ Looking forward to your response!`;
                         type="submit"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full bg-secondary text-foreground font-bold py-4 rounded-full text-lg cursor-pointer transition-shadow shadow-[3px_3px_0_var(--accent)] hover:shadow-[5px_5px_0_var(--accent)]"
+                        className="w-full bg-secondary text-foreground font-bold py-3 md:py-4 rounded-full text-base md:text-lg cursor-pointer transition-shadow shadow-[3px_3px_0_var(--accent)] hover:shadow-[5px_5px_0_var(--accent)]"
                     >
                         Get a Quote
                     </motion.button>
@@ -266,25 +273,25 @@ Looking forward to your response!`;
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="flex-1 max-w-xl space-y-6"
+                className="flex-1 w-full lg:max-w-xl space-y-4 md:space-y-6"
             >
-                <div className="space-y-4">
+                <div className="space-y-3 md:space-y-4">
                     <div>
-                        <h3 className="font-semibold text-foreground/70 mb-1">Address:</h3>
-                        <p className="text-foreground text-sm">
+                        <h3 className="text-sm sm:text-base font-semibold text-foreground/70 mb-1">Address:</h3>
+                        <p className="text-foreground text-xs sm:text-sm">
                             Shop no 5, D-wing, EMP 48, bldg no 6,<br />
                             Evershine Haffley Towers Co-op.hsg. Soc.ltd, Mumbai,<br />
                             Maharashtra 400101
                         </p>
                     </div>
                     <div>
-                        <h3 className="font-semibold text-foreground/70 mb-1">Phone:</h3>
-                        <p className="text-foreground">+91 98200 40392</p>
+                        <h3 className="text-sm sm:text-base font-semibold text-foreground/70 mb-1">Phone:</h3>
+                        <p className="text-sm sm:text-base text-foreground">+91 98200 40392</p>
                     </div>
                 </div>
 
                 {/* Map */}
-                <div className="w-full h-120 rounded-md overflow-hidden shadow-lg border-2 border-foreground/10">
+                <div className="w-full h-64 sm:h-80 md:h-96 lg:h-120 rounded-md overflow-hidden shadow-lg border-2 border-foreground/10">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d940.7354619635823!2d72.8729673!3d19.211262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7381ff38b41%3A0x26acdcb15cd22f7b!2sShetty%20Tours%20%26%20Travels%20%7C%20Rent-Hire%20a%20Bus%20Car%20Tempo%20Traveller%20%7C%20Minibus%20on%20Rent%20-%20Luxury%20bus%20on%20rent%20in%20Mumbai!5e1!3m2!1sen!2sin!4v1234567890"
                         width="100%"
@@ -297,7 +304,7 @@ Looking forward to your response!`;
                     />
                 </div>
             </motion.div>
-        </section>
+        </motion.section>
     );
 }
 

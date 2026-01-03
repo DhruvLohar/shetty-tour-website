@@ -47,17 +47,17 @@ function FAQAccordion({ item, index }: { item: FAQItem; index: number }) {
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex items-center justify-between pb-4 text-left group cursor-pointer"
+                className="w-full flex items-center justify-between pb-3 md:pb-4 text-left group cursor-pointer"
             >
-                <span className="text-lg font-semibold text-foreground pr-8">
+                <span className="text-sm sm:text-base md:text-lg font-semibold text-foreground pr-4 sm:pr-8">
                     {item.question}
                 </span>
                 <motion.div
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="shrink-0 w-6 h-6 rounded-full border-2 border-foreground flex items-center justify-center"
+                    className="shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full border-2 border-foreground flex items-center justify-center"
                 >
-                    <span className="text-foreground text-xl leading-none">+</span>
+                    <span className="text-foreground text-lg sm:text-xl leading-none">+</span>
                 </motion.div>
             </button>
             <AnimatePresence initial={false}>
@@ -69,7 +69,7 @@ function FAQAccordion({ item, index }: { item: FAQItem; index: number }) {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="overflow-hidden"
                     >
-                        <p className="pb-6 text-foreground/70 pr-12">
+                        <p className="pb-4 md:pb-6 text-sm sm:text-base text-foreground/70 pr-4 sm:pr-8 md:pr-12">
                             {item.answer}
                         </p>
                     </motion.div>
@@ -81,21 +81,27 @@ function FAQAccordion({ item, index }: { item: FAQItem; index: number }) {
 
 function FAQS() {
     return (
-        <section className="w-full relative flex flex-row items-start justify-between px-20 py-24 bg-secondary">
+        <motion.section 
+            className="w-full relative flex flex-col lg:flex-row items-start justify-between px-4 sm:px-6 md:px-12 lg:px-20 py-12 md:py-16 lg:py-24 bg-secondary gap-8 lg:gap-12"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+        >
             <motion.h1 
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-7xl font-black italic shrink-0"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black italic shrink-0"
             >
                 FAQs.
             </motion.h1>
-            <div className="flex-1 max-w-4xl">
+            <div className="flex-1 w-full lg:max-w-4xl">
                 {faqData.map((item, index) => (
                     <FAQAccordion key={index} item={item} index={index} />
                 ))}
             </div>
-        </section>
+        </motion.section>
     );
 }
 

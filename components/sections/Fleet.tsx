@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import InfiniteMenu from "../ui/InfiniteMenu/InfiniteMenu";
 
 function Fleet() {
@@ -56,16 +57,16 @@ function Fleet() {
     ];
 
     return (
-        <section className="relative flex flex-col items-center w-full min-h-screen">
+        <section className="relative flex flex-col items-center w-full min-h-screen py-8 md:py-12">
 
-            <div className="flex flex-col">
-                <h1 className="text-7xl font-black italic text-center mb-6">Our Fleet.</h1>
-                <p className="text-center max-w-3xl mx-auto text-foreground/70 mb-12 px-4">
+            <div className="flex flex-col px-4 sm:px-6 md:px-8 items-start md:items-center">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-black italic text-left md:text-center mb-4 md:mb-6">Our Fleet.</h1>
+                <p className="text-sm sm:text-base text-left md:text-center max-w-full sm:max-w-2xl md:max-w-3xl md:mx-auto text-foreground/70 mb-8 md:mb-12 px-2 sm:px-4">
                     Discover our fleet — from spacious <b>buses</b> and <b>red buses</b> to executive <b>Creta car</b> and <b>Force Travellers</b> — built for comfort, safety, and group travel. Drag the gallery below to explore each vehicle or <a href="#get-in-touch" className="underline">see booking options</a>.
                 </p>
             </div>
 
-            <div className="h-150">
+            <div className="w-full h-125 sm:h-150 md:h-175 lg:h-200">
                 <InfiniteMenu items={items as any} />
             </div>
         </section>

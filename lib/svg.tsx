@@ -1,4 +1,5 @@
 import * as React from "react"
+import { motion } from "framer-motion"
 
 type Props = React.SVGProps<SVGSVGElement>;
 
@@ -32,9 +33,16 @@ export const Sun = React.memo((props: Props) => {
             fill="none"
             {...props}
         >
-            <path
+            <motion.path
                 fill="#FFD166"
                 d="M109.867 76.708c3.075-18.927-9.946-36.383-29.083-38.99-19.136-2.605-37.142 10.625-40.217 29.553-3.074 18.927 9.946 36.383 29.083 38.989 19.136 2.606 37.142-10.625 40.217-29.552Z"
+                animate={{ rotate: 360 }}
+                transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear"
+                }}
+                style={{ originX: 0.5, originY: 0.5 }}
             />
             <path
                 fill="#FFC63D"
