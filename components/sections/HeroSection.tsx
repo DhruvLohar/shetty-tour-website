@@ -158,7 +158,7 @@ function HeroSection() {
     );
 
     return (
-        <section className="w-full relative h-screen flex items-start justify-center pt-16 sm:pt-16 overflow-hidden">
+        <section className="w-full relative h-[60vh] sm:h-screen flex items-start justify-center pt-16 sm:pt-16 overflow-hidden">
 
             <div className="flex flex-col items-center justify-center gap-2 sm:gap-3 px-4">
                 <motion.span
@@ -170,7 +170,7 @@ function HeroSection() {
                     50 Years of Trusted Travel in Mumbai.
                 </motion.span>
                 <motion.h1
-                    className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center font-black italic tracking-tight"
+                    className="font-display text-5xl md:text-6xl lg:text-7xl text-center font-black italic tracking-tight"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
