@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useCallback, useEffect, useState } from "react";
+import { motion, useAnimationControls } from "framer-motion";
 
 interface Testimonial {
     id: number;
@@ -100,60 +100,69 @@ const TestimonialCard = React.memo(({ testimonial }: { testimonial: Testimonial 
 
 TestimonialCard.displayName = "TestimonialCard";
 
-const InfiniteRow = React.memo(({ items, direction = "left" }: { items: Testimonial[], direction?: "left" | "right" }) => {
-    const [isPaused, setIsPaused] = useState(false);
-    
-    // Calculate total width more accurately
-    const cardWidth = 400; // max width from responsive classes
-    const gap = 24; // 6 * 4px
-    const totalWidth = (cardWidth + gap) * items.length;
-    
-    const handleTouchStart = useCallback(() => {
-        setIsPaused(true);
-    }, []);
-    
-    const handleTouchEnd = useCallback(() => {
-        setIsPaused(false);
-    }, []);
-    
-    return (
-        <div 
-            className="overflow-hidden"
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-        >
-            <motion.div
-                className="flex gap-4 sm:gap-6"
-                animate={{
-                    x: direction === "left" ? [-totalWidth, 0] : [0, -totalWidth],
-                }}
-                transition={{
+const InfiniteRow = React.memo(
+    ({ items, direction = "left" }: { items: Testimonial[]; direction?: "left" | "right" }) => {
+        const controls = useAnimationControls();
+
+        const cardWidth = 400;
+        const gap = 24;
+        const totalWidth = (cardWidth + gap) * items.length;
+
+        useEffect(() => {
+            controls.start({
+                x: direction === "left" ? [-totalWidth, 0] : [0, -totalWidth],
+                transition: {
                     x: {
                         repeat: Infinity,
                         repeatType: "loop",
                         duration: 50,
                         ease: "linear",
                     },
-                }}
-                style={{
-                    animationPlayState: isPaused ? "paused" : "running"
-                }}
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
+                },
+            });
+        }, [controls, direction, totalWidth]);
+
+        const handlePause = useCallback(() => {
+            controls.stop();
+        }, [controls]);
+
+        const handleResume = useCallback(() => {
+            controls.start({
+                x: direction === "left" ? [-totalWidth, 0] : [0, -totalWidth],
+                transition: {
+                    x: {
+                        repeat: Infinity,
+                        repeatType: "loop",
+                        duration: 50,
+                        ease: "linear",
+                    },
+                },
+            });
+        }, [controls, direction, totalWidth]);
+
+        return (
+            <div
+                className="overflow-hidden"
+                onMouseEnter={handlePause}
+                onMouseLeave={handleResume}
+                onTouchStart={handlePause}
+                onTouchEnd={handleResume}
             >
-                {/* Render items 4 times for seamless loop */}
-                {[...Array(4)].flatMap((_, setIndex) => 
-                    items.map((testimonial, index) => (
-                        <TestimonialCard 
-                            key={`${direction}-${testimonial.id}-${setIndex}-${index}`} 
-                            testimonial={testimonial} 
-                        />
-                    ))
-                )}
-            </motion.div>
-        </div>
-    );
-});
+                <motion.div className="flex gap-4 sm:gap-6" animate={controls}>
+                    {[...Array(4)].flatMap((_, setIndex) =>
+                        items.map((testimonial, index) => (
+                            <TestimonialCard
+                                key={`${direction}-${testimonial.id}-${setIndex}-${index}`}
+                                testimonial={testimonial}
+                            />
+                        ))
+                    )}
+                </motion.div>
+            </div>
+        );
+    }
+);
+
 
 InfiniteRow.displayName = "InfiniteRow";
 
@@ -162,7 +171,7 @@ function Testimonials() {
     const bottomRowTestimonials = testimonials.slice(5, 10);
 
     return (
-        <motion.section 
+        <motion.section
             className="w-full flex flex-col items-center min-h-screen py-12 sm:py-16 md:py-18 px-4 sm:px-6 md:px-12 overflow-hidden"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}

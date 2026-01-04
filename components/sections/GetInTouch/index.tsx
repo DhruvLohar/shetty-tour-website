@@ -120,7 +120,7 @@ Looking forward to your response!`;
                     Book your fleet now!
                 </p>
 
-                <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
+                <form onSubmit={handleSubmit} className="space-y-8 md:space-y-8">
                     {/* Trip Type Radio Buttons */}
                     <div className="flex items-center gap-4 sm:gap-6">
                         <RadioButton
@@ -140,7 +140,7 @@ Looking forward to your response!`;
                     </div>
 
                     {/* Date Inputs */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <FloatingInput
                             id="fromDate"
                             label="From Date"

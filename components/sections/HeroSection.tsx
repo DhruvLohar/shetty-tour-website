@@ -61,27 +61,34 @@ const CloudAnimated = React.memo(({ className, opacity, color, delay = 0 }: {
                 ease: "easeInOut"
             }}
         >
-            <motion.div
-                animate={{
-                    fill: color
-                }}
-                transition={{
-                    duration: 1.5,
-                    ease: "easeInOut"
-                }}
-            >
-                <Cloud opacity={opacity} color={color} />
-            </motion.div>
+            <div className="relative">
+                <AnimatePresence mode="sync">
+                    <motion.div
+                        key={color}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{
+                            duration: 3.5,
+                            ease: "easeInOut"
+                        }}
+                        className="absolute inset-0"
+                    >
+                        <Cloud opacity={opacity} color={color} />
+                    </motion.div>
+                </AnimatePresence>
+            </div>
         </motion.div>
     );
 });
 
 CloudAnimated.displayName = "CloudAnimated";
 
+
 const SunAnimated = React.memo(() => {
     return (
         <motion.div
-            className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 absolute top-8 sm:top-12 right-10 sm:right-20"
+            className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 absolute top-8 sm:top-12 right-10 sm:right-20 scale-0 sm:scale-100"
             animate={{
                 scale: [1, 1.05, 1],
                 rotate: [0, 5, 0]
@@ -151,7 +158,7 @@ function HeroSection() {
     );
 
     return (
-        <section className="w-full relative h-screen flex items-start justify-center pt-12 sm:pt-16 overflow-hidden">
+        <section className="w-full relative h-screen flex items-start justify-center pt-16 sm:pt-16 overflow-hidden">
 
             <div className="flex flex-col items-center justify-center gap-2 sm:gap-3 px-4">
                 <motion.span
@@ -170,17 +177,20 @@ function HeroSection() {
                 >
                     <span className="text-primary">Shetty tours</span> <br /> & travels
                 </motion.h1>
-                <motion.button
-                    type="button"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-[50%] mt-2 bg-secondary text-foreground font-bold py-3 md:py-4 rounded-full text-base md:text-lg cursor-pointer transition-shadow shadow-[3px_3px_0_var(--accent)] hover:shadow-[5px_5px_0_var(--accent)]"
-                >
-                    Get Pricings
-                </motion.button>
+                <div className="w-[80%] flex items-center justify-center">
+                    <motion.a
+                        href="#get-in-touch"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-[80%] mt-2 bg-secondary text-foreground font-bold py-3 md:py-4 rounded-full text-xs md:text-lg cursor-pointer transition-shadow shadow-[3px_3px_0_var(--accent)] hover:shadow-[5px_5px_0_var(--accent)] inline-flex items-center justify-center"
+                        aria-label="Get Pricings"
+                    >
+                        Get Pricings
+                    </motion.a>
+                </div>
             </div>
 
-            <div className="absolute bottom-12 sm:bottom-16 md:bottom-20 lg:bottom-0 left-1/2 -translate-x-1/2 w-[80%] sm:w-[70%] md:w-auto">
+            <div className="absolute bottom-0 sm:bottom-16 md:bottom-20 lg:bottom-0 left-1/2 -translate-x-1/2 w-[80%] sm:w-[70%] md:w-auto z-30">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={currentIndex}
@@ -199,12 +209,12 @@ function HeroSection() {
 
             <TreeAnimated
                 Component={TreeLeft}
-                className="absolute left-4 sm:left-8 md:left-12 lg:left-18 bottom-0 w-24 sm:w-32 md:w-40 lg:w-auto origin-bottom"
+                className="absolute left-2 md:left-12 lg:left-18 bottom-0 w-24 sm:w-32 md:w-40 lg:w-auto origin-bottom scale-0 sm:scale-100"
                 delay={0}
             />
             <TreeAnimated
                 Component={TreeRight}
-                className="absolute right-4 sm:right-8 md:right-12 lg:right-18 bottom-0 w-24 sm:w-32 md:w-40 lg:w-auto origin-bottom"
+                className="absolute right-24 sm:right-18 bottom-0 w-24 sm:w-32 md:w-40 lg:w-auto origin-bottom scale-[0.5] md:scale-100"
                 delay={0.5}
             />
 
@@ -215,13 +225,13 @@ function HeroSection() {
                 delay={0}
             />
             <CloudAnimated
-                className="absolute top-[20%] sm:top-[25%] right-[10%] sm:right-[15%] scale-[0.4] sm:scale-75 -z-10"
+                className="absolute top-[15%] sm:top-[25%] right-[25%] sm:right-[25%] scale-[0.4] sm:scale-75 -z-10"
                 opacity={1}
                 color={currentColor}
                 delay={1}
             />
             <CloudAnimated
-                className="absolute top-[15%] sm:top-[20%] left-20 sm:left-36 scale-[0.5] sm:scale-100 -z-10"
+                className="absolute top-[20%] sm:top-[20%] left-6 sm:left-36 scale-[0.5] sm:scale-100 -z-10"
                 opacity={1}
                 color={currentColor}
                 delay={2}
@@ -239,7 +249,7 @@ function HeroSection() {
             </motion.div>
 
             {/* Carousel Indicators */}
-            <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+            {/* <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
                 {CAROUSEL_DATA.map((_, index) => (
                     <motion.button
                         key={index}
@@ -251,7 +261,7 @@ function HeroSection() {
                         aria-label={`Go to slide ${index + 1}`}
                     />
                 ))}
-            </div>
+            </div> */}
         </section>
     );
 }
