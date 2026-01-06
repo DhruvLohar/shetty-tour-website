@@ -39,8 +39,8 @@ function AboutUs() {
 
             <div className="w-full h-auto lg:h-[40vw] flex flex-col lg:flex-row items-center justify-between gap-3 sm:gap-4 md:gap-2 py-6 md:py-8">
                 <Image
-                    src={"https://images.pexels.com/photos/917510/pexels-photo-917510.jpeg"}
-                    alt="Photo by Te lensFix: https://www.pexels.com/photo/photo-of-woman-sitting-on-boat-spreading-her-arms-1371360/"
+                    src={"https://images.pexels.com/photos/2486402/pexels-photo-2486402.jpeg"}
+                    alt="Photo by Raphael Brasileiro: https://www.pexels.com/photo/inside-public-transportation-2486402/"
                     width={300}
                     height={300}
                     className="object-cover rounded-4xl rounded-se-xl w-full h-64 sm:h-80 md:h-96 lg:w-[30%] lg:h-full lg:transform-[translateY(12%)]"
@@ -53,8 +53,8 @@ function AboutUs() {
                     className="object-cover rounded-xl rounded-se-4xl rounded-bl-4xl w-full h-64 sm:h-80 md:h-96 lg:w-[36%] lg:h-full"
                 />
                 <Image
-                    src={"https://images.pexels.com/photos/2422265/pexels-photo-2422265.jpeg"}
-                    alt="Photo by Josh Hild: https://www.pexels.com/photo/photo-of-tent-at-near-trees-2422265/"
+                    src={"https://images.pexels.com/photos/2464531/pexels-photo-2464531.jpeg"}
+                    alt="Photo by Djordje Petrovic: https://www.pexels.com/photo/photo-of-vehicles-on-highway-2464531/"
                     width={300}
                     height={300}
                     className="object-cover rounded-4xl rounded-bl-xl w-full h-64 sm:h-80 md:h-96 lg:w-[30%] lg:h-full lg:transform-[translateY(-12%)]"

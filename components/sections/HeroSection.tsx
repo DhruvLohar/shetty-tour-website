@@ -14,16 +14,16 @@ const CAROUSEL_DATA: ImageProps[] = [
         height: 279,
     },
     {
-        src: "/carousel/Car.png",
-        alt: "Car Image from storyset",
-        width: 455,
-        height: 279,
-    },
-    {
         src: "/carousel/MiniBus.png",
         alt: "Mini Bus Image from storyset",
         width: 605,
         height: 215,
+    },
+    {
+        src: "/carousel/Car.png",
+        alt: "Car Image from storyset",
+        width: 455,
+        height: 279,
     },
     {
         src: "/carousel/DoubleDecker.png",
@@ -175,7 +175,7 @@ function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                    <span className="text-primary">Shetty tours</span> <br /> & travels
+                    <span className="text-primary">Shetty Tours</span> <br /> & Travels
                 </motion.h1>
                 <div className="w-[80%] flex items-center justify-center">
                     <motion.a

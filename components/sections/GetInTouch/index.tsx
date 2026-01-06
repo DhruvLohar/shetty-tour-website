@@ -92,7 +92,7 @@ ${formData.interestedFleet ? `🚙 Fleet: ${formData.interestedFleet}` : ""}
 Looking forward to your response!`;
 
         const encodedMessage = encodeURIComponent(message);
-        const whatsappNumber = "919321781063";
+        const whatsappNumber = "919820040392";
         const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
         window.open(whatsappUrl, "_blank");
@@ -232,7 +232,7 @@ Looking forward to your response!`;
                         onChange={(val) => updateField("interestedFleet", val)}
                         options={[
                             { value: "car-creta", label: "Car (Creta)" },
-                            { value: "force-traveller", label: "Force Traveller" },
+                            { value: "force-traveller", label: "Force Tempo Traveller" },
                             { value: "mini-bus", label: "Mini Bus" },
                             { value: "bus", label: "Bus" }
                         ]}

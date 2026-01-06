@@ -79,6 +79,17 @@ function Fleet() {
 
     const items = [
         {
+            title: "Force Tempo Traveller",
+            seats: "Seats 12–17",
+            description: "Perfect medium groups.",
+            carouselImages: [
+                "/images/Traveller.jpeg",
+                "/images/Traveller-1.jpeg",
+                "/images/Traveller-2.jpeg",
+                "/images/Traveller-3.jpeg",
+            ],
+        },
+        {
             title: "Bus",
             seats: "Seats 40–50",
             description: "Large group comfort.",
@@ -92,14 +103,8 @@ function Fleet() {
             ],
         },
         {
-            title: "Red Bus",
-            seats: "Seats 45–52",
-            description: "Premium group travel.",
-            carouselImages: ["/images/RedBus.jpeg", "/images/RedBus-1.jpeg"],
-        },
-        {
-            title: "Creta",
-            seats: "Seats 5",
+            title: "Innova Crysta",
+            seats: "Seats 7",
             description: "Executive family comfort.",
             carouselImages: [
                 "/images/Car.jpeg",
@@ -108,15 +113,10 @@ function Fleet() {
             ],
         },
         {
-            title: "Traveller",
-            seats: "Seats 12–17",
-            description: "Perfect medium groups.",
-            carouselImages: [
-                "/images/Traveller.jpeg",
-                "/images/Traveller-1.jpeg",
-                "/images/Traveller-2.jpeg",
-                "/images/Traveller-3.jpeg",
-            ],
+            title: "Red Bus",
+            seats: "Seats 45–52",
+            description: "Premium group travel.",
+            carouselImages: ["/images/RedBus.jpeg", "/images/RedBus-1.jpeg"],
         },
     ];
 
