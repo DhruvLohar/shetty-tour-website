@@ -1,3 +1,4 @@
+import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import AboutUs from "@/components/sections/AboutUs";
 import FAQS from "@/components/sections/FAQs";
@@ -8,20 +9,35 @@ import Testimonials from "@/components/sections/Testimonials";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center">
-      <HeroSection />
+    <>
+      <Navbar />
+      <main className="w-full">
+        <section id="home" className="w-full">
+          <HeroSection />
+        </section>
 
-      <AboutUs />
+        <section id="about" className="w-full">
+          <AboutUs />
+        </section>
 
-      <Fleet />
+        <section id="fleet" className="w-full">
+          <Fleet />
+        </section>
 
-      <Testimonials />
+        <section id="testimonials" className="w-full">
+          <Testimonials />
+        </section>
 
-      <FAQS />
+        <section id="faqs" className="w-full">
+          <FAQS />
+        </section>
 
-      <GetInTouch />
+        <section id="pricing" className="w-full">
+          <GetInTouch />
+        </section>
 
-      <Footer />
-    </main>
+        <Footer />
+      </main>
+    </>
   );
 }

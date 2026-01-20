@@ -155,13 +155,13 @@ function Fleet() {
             />
 
             {/* ================= HEADER ================= */}
-            <div className="relative z-10 px-6 text-center mb-12">
+            <div className="relative z-10 px-6 text-left md:text-center mb-12">
                 <h1 className="text-6xl md:text-7xl font-black italic">
                     Our <span className="text-primary">Fleet.</span>
                 </h1>
 
                 {/* ✅ MAIN HEADER DESCRIPTION (PRESERVED) */}
-                <p className="mt-4 max-w-3xl mx-auto text-foreground/70 text-sm sm:text-base">
+                <p className="mt-4 md:max-w-3xl md:mx-auto text-foreground/70 text-sm sm:text-base">
                     Explore our fleet — <b>buses</b>, <b>red buses</b>, <b>Creta car</b>, and{" "}
                     <b>Force Travellers</b>. Drag the gallery below or{" "}
                     <a href="#get-in-touch" className="underline">
@@ -195,17 +195,17 @@ function Fleet() {
                 className="relative z-10 px-6"
             >
                 {/* Fleet Text */}
-                <motion.h2 variants={textVariant} className="text-6xl md:text-7xl font-black">
+                <motion.h2 variants={textVariant} className="text-4xl md:text-7xl font-black text-left">
                     {currentFleet.title}
                 </motion.h2>
 
-                <motion.p variants={textVariant} className="text-xl font-semibold mt-2">
+                <motion.p variants={textVariant} className="text-xl font-semibold mt-2 text-left">
                     {currentFleet.seats}
                 </motion.p>
 
                 <motion.p
                     variants={textVariant}
-                    className="text-lg text-foreground/60 mt-1 mb-6"
+                    className="text-lg text-foreground/60 mt-1 mb-6 text-left"
                 >
                     {currentFleet.description}
                 </motion.p>
