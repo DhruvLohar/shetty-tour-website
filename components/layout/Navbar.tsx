@@ -66,7 +66,7 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`hidden lg:block fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+        className={`hidden lg:block fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
           scrolled ? "top-4" : "top-6"
         }`}
       >

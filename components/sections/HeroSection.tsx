@@ -28,8 +28,8 @@ const CAROUSEL_DATA: ImageProps[] = [
     {
         src: "/carousel/DoubleDecker.png",
         alt: "Double Decker Image from storyset",
-        width: 665,
-        height: 215,
+        width: 635,
+        height: 195,
     }
 ];
 
@@ -158,7 +158,7 @@ function HeroSection() {
     );
 
     return (
-        <section className="w-full relative h-[60vh] sm:h-screen flex items-start justify-center pt-16 sm:pt-16 overflow-hidden">
+        <section className="w-full relative h-[60vh] sm:h-screen flex items-start justify-center pt-16 sm:pt-26 overflow-hidden">
 
             <div className="flex flex-col items-center justify-center gap-2 sm:gap-3 px-4">
                 <motion.span
