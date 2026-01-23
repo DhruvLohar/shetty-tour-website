@@ -80,13 +80,14 @@ function Fleet() {
     const items = [
         {
             title: "Force Tempo Traveller",
-            seats: "Seats 12–17",
+            seats: "Seats 14, 17, 20, 25",
             description: "Perfect medium groups.",
             carouselImages: [
                 "/images/Traveller.jpeg",
                 "/images/Traveller-1.jpeg",
                 "/images/Traveller-2.jpeg",
                 "/images/Traveller-3.jpeg",
+                "/images/Traveller-4.jpeg",
             ],
         },
         {
@@ -114,7 +115,7 @@ function Fleet() {
         },
         {
             title: "Red Bus",
-            seats: "Seats 45–52",
+            seats: "Seats 40",
             description: "Premium group travel.",
             carouselImages: ["/images/RedBus.jpeg", "/images/RedBus-1.jpeg"],
         },

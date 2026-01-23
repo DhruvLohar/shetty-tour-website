@@ -32,6 +32,34 @@ const faqData: FAQItem[] = [
     {
         question: "How long has Shetty Tours and Travels been in business?",
         answer: "We have proudly completed over 50 years of continuous service in the Mumbai region. Our longevity is built on honesty, punctuality, safety, and customer satisfaction—values that have earned us the trust of thousands of satisfied customers across generations."
+    },
+    {
+        question: "Can I hire luxury buses & cars?",
+        answer: "Shetty Tours & Travels does offer luxury buses & cars on rent. We request you to make luxury rental bookings in advance during the wedding season to ensure availability."
+    },
+    {
+        question: "How & when do I receive my vehicle details?",
+        answer: "Your trip's vehicle and driver details will be shared 24 hours in advance of the departure time."
+    },
+    {
+        question: "How much luggage can I bring?",
+        answer: "Most of our buses can easily accommodate 1 small bag per passenger. If you plan to carry more luggage, you can contact our support team or speak to your travel manager and we'll work on making additional arrangements."
+    },
+    {
+        question: "Can I pay for toll & parking in advance to avoid dealing with cash?",
+        answer: "Yes, we can provide you with an estimate on the toll, parking & interstate charges. This estimate can be included in the fare. You'll be reimbursed/charged for differences between the actuals and estimations, as applicable."
+    },
+    {
+        question: "How are the KM's calculated?",
+        answer: "Km's are calculated basis the return trip distance between the boarding point and the destination. Additional distance covered within the City between the garage and the pickup point is also included, if applicable."
+    },
+    {
+        question: "Can I reschedule my trip?",
+        answer: "For round trips, small reschedules can be carried out at no extra charge if the trip duration stays within the booked timings. For one-way trips, reschedules are acceptable within 1-2 hours. Beyond that, a standard hourly fee will apply as mentioned in the booking document."
+    },
+    {
+        question: "How does Shetty Tours & Travels ensure that vehicles are in good condition?",
+        answer: "We ensure our vehicles are relatively new and that maintenance schedules are strictly adhered to. We also practice mandatory pre-cleaning & sanitization before every trip."
     }
 ];
 

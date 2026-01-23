@@ -13,63 +13,75 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
     {
         id: 1,
-        quote: "Outstanding service—well-maintained bus, punctual, and comfortable journey. The driver was professional and very helpful throughout the trip.",
-        name: "Rajesh Kumar",
-        fleet: "Bus - 45 Seater"
+        quote: "We booked a 20-seater tempo traveller from Shetty Tours and Travels for a family trip. The vehicle was clean, on time, and very comfortable. Driver was polite and experienced. Highly recommended for group travel.",
+        name: "Rohan Patil",
+        fleet: "Tempo Traveller - 20 Seater"
     },
     {
         id: 2,
-        quote: "Excellent experience—spacious traveller, clean interiors, and exactly what we needed for our family trip. Highly recommend!",
-        name: "Priya Sharma",
-        fleet: "Traveller - 17 Seater"
+        quote: "Excellent service! We hired a 25-seater for an office outing and everything went smoothly—from booking to drop-off. Very professional and reliable team.",
+        name: "Neha Sharma",
+        fleet: "Tempo Traveller - 25 Seater"
     },
     {
         id: 3,
-        quote: "Top-notch quality—comfortable Creta with premium features. The driver was courteous and the entire experience was smooth.",
-        name: "Amit Patel",
-        fleet: "Creta - 5 Seater"
+        quote: "Have been using Shetty Tours and Travels for years now. Their buses and tempo travellers are always well-maintained, and they never compromise on safety or punctuality.",
+        name: "Amit Kulkarni",
+        fleet: "Bus - 50 Seater"
     },
     {
         id: 4,
-        quote: "Impressive service—luxury red bus, well-equipped, and perfect for our group tour. Customer support was superb and very responsive.",
-        name: "Sneha Reddy",
-        fleet: "Red Bus - 52 Seater"
+        quote: "Booked a 17-seater tempo traveller for a wedding function. The vehicle arrived early, was neat, and the journey was comfortable throughout. Will definitely book again.",
+        name: "Pooja Desai",
+        fleet: "Tempo Traveller - 17 Seater"
     },
     {
         id: 5,
-        quote: "Great product—reliable traveller, easy to book, and just as described. The team ensured a smooth and pleasant journey.",
-        name: "Vikram Singh",
-        fleet: "Traveller - 12 Seater"
+        quote: "Very trustworthy travel company. Transparent pricing, no last-minute surprises, and courteous drivers. Perfect choice for group tours and family trips.",
+        name: "Sandeep Verma",
+        fleet: "Tempo Traveller - 20 Seater"
     },
     {
         id: 6,
-        quote: "Outstanding experience—clean bus, friendly driver, and exactly what we expected. The team went above and beyond to help us.",
-        name: "Kavita Desai",
-        fleet: "Bus - 40 Seater"
+        quote: "Our school trip was handled very professionally by Shetty Tours and Travels. The bus was clean, spacious, and the driver was responsible. Parents were very satisfied.",
+        name: "Kavita Joshi",
+        fleet: "Bus - 45 Seater"
     },
     {
         id: 7,
-        quote: "Excellent service—comfortable car, well-maintained, and perfect for our business trip. Driver was professional and on time.",
-        name: "Arjun Menon",
-        fleet: "Creta - 5 Seater"
+        quote: "Smooth booking process and great service overall. The tempo traveller was in excellent condition and ideal for our outstation trip. Worth every rupee.",
+        name: "Rahul Mehta",
+        fleet: "Tempo Traveller - 17 Seater"
     },
     {
         id: 8,
-        quote: "Fantastic journey—spacious red bus with modern amenities. The staff was incredibly helpful and attentive to our needs.",
-        name: "Deepika Iyer",
-        fleet: "Red Bus - 45 Seater"
+        quote: "We hired a bus for a religious tour and had a great experience. The journey was comfortable and stress-free. You can tell they have decades of experience in this field.",
+        name: "Sneha Iyer",
+        fleet: "Bus - 50 Seater"
     },
     {
         id: 9,
-        quote: "Premium quality—luxury traveller, smooth ride, and excellent customer care. Would definitely book again for future trips.",
-        name: "Sanjay Gupta",
-        fleet: "Traveller - 17 Seater"
+        quote: "Shetty Tours and Travels is our go-to for all group travel needs. Whether it's a 17-seater or a larger bus, service quality is always consistent.",
+        name: "Ankit Malhotra",
+        fleet: "Tempo Traveller - 25 Seater"
     },
     {
         id: 10,
-        quote: "Wonderful experience—punctual service, clean vehicle, and professional driver. Made our wedding guest transport hassle-free.",
-        name: "Anita Verma",
-        fleet: "Bus - 50 Seater"
+        quote: "Reliable, punctual, and professional. The driver knew the routes well and ensured a safe journey. Would recommend Shetty Tours and Travels to anyone looking for group vehicle rentals.",
+        name: "Priya Nair",
+        fleet: "Bus - 35 Seater"
+    },
+    {
+        id: 11,
+        quote: "Family darshan trip ke liye Shetty Tours and Travels choose kiya. Booking se lekar drop tak koi tension nahi. Trusted service.",
+        name: "Nilesh Shah",
+        fleet: "Tempo Traveller - 17 Seater"
+    },
+    {
+        id: 12,
+        quote: "Mumbai area mein rates kaafi reasonable hain aur service consistent hai. Vehicles clean rehte hain aur drivers experienced hote hain.",
+        name: "Harish Reddy",
+        fleet: "Tempo Traveller - 20 Seater"
     }
 ];
 

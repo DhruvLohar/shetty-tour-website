@@ -280,7 +280,7 @@ Looking forward to your response!`;
                         <h3 className="text-sm sm:text-base font-semibold text-foreground/70 mb-1">Address:</h3>
                         <p className="text-foreground text-xs sm:text-sm">
                             Shop no 5, D-wing, EMP 48, bldg no 6,<br />
-                            Evershine Haffley Towers Co-op.hsg. Soc.ltd, Mumbai,<br />
+                            Evershine Halley Towers Co-op.hsg. Soc.ltd, Mumbai,<br />
                             Maharashtra 400101
                         </p>
                     </div>

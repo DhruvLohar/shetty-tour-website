@@ -29,7 +29,7 @@ const CAROUSEL_DATA: ImageProps[] = [
         src: "/carousel/DoubleDecker.png",
         alt: "Double Decker Image from storyset",
         width: 635,
-        height: 195,
+        height: 160,
     }
 ];
 
