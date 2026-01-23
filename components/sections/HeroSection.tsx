@@ -202,6 +202,9 @@ function HeroSection() {
                         <Image
                             {...currentVehicle}
                             className="w-full h-auto"
+                            loading="eager"
+                            priority
+                            fetchPriority="high"
                         />
                     </motion.div>
                 </AnimatePresence>

@@ -32,8 +32,24 @@ export const metadata: Metadata = {
     "Outstation tours Mumbai",
     "AC vehicle hire Mumbai",
     "Mumbai tours and travels",
+    "Maharashtra vehicle hire",
+    "Tours and travels Maharashtra",
   ],
   authors: [{ name: "Shetty Tours and Travels" }],
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+  },
+  manifest: "/site.webmanifest",
   alternates: {
     canonical: "https://shettytravels.co.in/",
   },
@@ -43,11 +59,20 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://shettytravels.co.in/",
+    images: [
+      {
+        url: "/android-chrome-512x512.png",
+        width: 512,
+        height: 512,
+        alt: "Shetty Tours and Travels",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Shetty Tours and Travels – 50 Years of Trusted Travel in Mumbai",
     description: "50 years of proven experience in vehicle hire services. Well-maintained AC & Non-AC vehicles with professional drivers.",
+    images: ["/android-chrome-512x512.png"],
   },
   robots: {
     index: true,
